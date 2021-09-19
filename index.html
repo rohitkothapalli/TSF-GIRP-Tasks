@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Banking System</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body onload="loader()">
+
+    <!-- loader for splash screen -->
+    <div id="loading"></div>
+
+    <!-- navbar starts here  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./index.html">The Sparks Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./customers.html">Customers</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar ends here  -->
+
+    <!-- here content starts here -->
+    <div class="container-fluid hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-sm-12 text-center" data-aos="fade-up">
+                <h1>Money transaction</h1>
+                <p class="lead muted">Easy way to transfer money from any where</p>
+                <p>Welcome</p>
+                <br>
+                <br>
+                <a class="get-started" href="./customers.html">Get Started</a>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center" data-aos="fade-left">
+                <div class="hero-img-div">
+                    <img class="hero-img" src="data:image/jpeg;base64,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"
+                        alt="img-showing-money-transfer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- here content ends here -->
+
+
+
+
+    <!-- footer starts here -->
+    <footer>
+        <hr>
+        <div class="row text-center">
+            <div class="col-md-6">
+                <p>Made By Rohit Kothapalli</p>
+
+            </div>
+            <div class="col-md-6 text-center">
+                <ul class="social-icons">
+                    Contact Me:
+                    <li><a target="_blank" class="github" href="https://github.com/rohitkothapalli"><i class="fab fa-github fa-2x"></i></a></li>
+
+                    <li><a target="_blank" class="linkedin" href="https://www.linkedin.com/in/rohit-kothapalli-079719194/"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- footer ends here -->
+
+    <!-- spalsh screen js -->
+    <script>
+        var preloader = document.getElementById("loading");
+
+        function loader() {
+            preloader.style.display = 'none';
+        }
+    </script>
+
+    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+
+    <!-- aos data  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+        });
+    </script>
+
+</body>
+
+</html>
